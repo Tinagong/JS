@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<style>
+    body {
+        padding:50px;
+    }
+    .heartBox {
+        transform: rotate(-45deg); /* 旋转 */
+        width: 110px;
+        height: 110px;
+        overflow: hidden;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* 心形 */
+    .heart {
+        position: relative; /* 相对定位 */
+        width: 50px; /* 宽度 */
+        height: 50px; /* 高度 */
+        box-sizing: border-box; /* 盒模型 */
+        border: 5px solid red; /* 边框 */
+        background: red;
+        animation: pulse 1s infinite; /* 动画 */
+    }
+
+    .heart::before,
+    .heart::after {
+        content: ""; /* 伪元素 */
+        position: absolute; /* 绝对定位 */
+        width: 50px; /* 宽度 */
+        height: 50px; /* 高度 */
+        background-color: red; /* 背景颜色 */
+        border-radius: 25px 25px 25px 0; /* 圆角 */
+    }
+
+    .heart::before {
+        top: -25px; /* 上边距 */
+        left: -5px; /* 左边距 */
+    }
+
+    .heart::after {
+        top: -5px; /* 上边距 */
+        left: 15px; /* 左边距 */
+    }
+    @keyframes pulse {
+        0% {
+            transform: scale(1); /* 缩放 */
+        }
+        50% {
+            transform: scale(1.2); /* 缩放 */
+        }
+        100% {
+            transform: scale(1); /* 缩放 */
+        }
+    }
+</style>
+<body>
+<div class="heartBox"><div class="heart"></div></div>
+</body>
+</html>
